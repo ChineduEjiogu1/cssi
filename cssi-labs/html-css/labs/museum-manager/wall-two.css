@@ -18,48 +18,63 @@ body {
   margin: 0px;
 }
 
-#row1 {
+#row1
+{
   display: flex;/* insert the necessery property */
   height: 100px;
   margin: 10px;
 }
 /* Style your second row below */
-#row2 {
+#row2
+{
   display: flex;/* insert the necessery property */
   height: 100px;
   margin: 10px;
 }
-.pic{
+
+.pic
+{
   /* Insert the general styling that will apply to ALL images */
   height: 100px;
 }
 
-#m1 {
+#m1
+{
   flex:1 2 3;/* Finish the flex property for this image */
   flex-grow: 1;
   flex-shrink: 1;
 }
-#m2{
+
+#m2
+{
   flex:1 2 3;/* Finish the flex property for this image */
   flex-grow: 2;
   flex-shrink: 1;
 }
-#m3 {
+
+#m3
+{
   flex:1 2 3;/* Finish the flex property for this image */
   flex-grow: 3;
   flex-shrink: 1;
 }
-#m4 {
+
+#m4
+{
   flex:1 2 3;/* Finish the flex property for this image */
   flex-grow: 3;
   flex-shrink: 1;
 }
-#m5 {
+
+#m5
+{
     flex:1 2 3;/* Finish the flex property for this image */
     flex-grow: 2;
     flex-shrink: 1;
   }
-  #m6 {
+
+  #m6
+  {
     flex:1 2 3;/* Finish the flex property for this image */
     flex-grow: 1;
     flex-shrink: 1;
