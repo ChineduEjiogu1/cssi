@@ -1,0 +1,15 @@
+.container
+{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+}
+
+.container > div 
+{
+}
+
+ol li button
+{	
+	margin-left: 5px;
+}
