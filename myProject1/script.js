@@ -1,4 +1,4 @@
-let playing_tile = document.getElementsByClassName("playingtile");
+let playing_tile = document.querySelectorAll("playingtile");
 
 function colorChange()
 {
@@ -8,5 +8,14 @@ function colorChange()
     {
     playing_tile[i].addEventListener("click",colorChange,false);
     }
+}
+
+
+playing_tile.forEach((e)=>{
+e.addEventListener("click",colorChange);
+})
+
+function colorChange(e){
+    e.target.style.backgroundColor("blue")
 }
 
