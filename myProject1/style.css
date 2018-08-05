@@ -1,0 +1,31 @@
+
+
+
+.playing-tile
+{
+    display:grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px 100px;
+    background-color: lightskyblue;
+    justify-content: center;
+}
+
+.playing-tile-tile
+{
+    background-color: white;
+    
+    /*
+    padding: 20px;
+    */
+    border: 0.8px solid rgb(247, 247, 247);
+    border-radius: 10px;
+
+    
+}
+
+.playing-tile-tile button
+{
+    width : 70px;
+    height: 70px;
+    border-radius: 10px;
+}
