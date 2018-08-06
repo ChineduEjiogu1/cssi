@@ -6,7 +6,7 @@
     display:grid;
     grid-template-columns: 100px 100px 100px 100px 100px;
     grid-template-rows: 100px 100px 100px 100px 100px;
-    background-color: silver;
+    background-color: rgb(249, 249, 249);
     justify-content: center;
 }
 
@@ -19,3 +19,7 @@
     
 }
 
+.colorOnClick
+{
+    background-color: rgb(17, 36, 252);
+}
