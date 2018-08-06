@@ -17,24 +17,34 @@ console.log("Running Click Events Script");
 let box1 = document.querySelector('#box1');
 let box2 = document.querySelector('#box2');
 let box3 = document.querySelector('#box3');
+let test = document.querySelectorAll('#container1 .box');
+
+console.log(test);
+
+test.forEach(function(box){
+  // get background color BEFORE addEventListener
+  let bcolor = window.getComputedStyle(box)['background-color'];
+
+  box.addEventListener('click',(e) =>{
+     box1.style.backgroundColor = bcolor;
+     box2.style.backgroundColor = bcolor;
+     box3.style.backgroundColor = bcolor;
+  })
+})
 
 let box4 = document.querySelector('#box4');
 let box5 = document.querySelector('#box5');
+
+box4.addEventListener('click',(e) =>{
+   box4.classList.toggle('active');
+})
+
+box5.addEventListener('click',(e) =>{
+   box5.classList.toggle('active');
+})
+
 let box6 = document.querySelector('#box6');
 let box7 = document.querySelector('#rect');
-
-
-box1.addEventListener('click',() => setColor("box2", "box3", "red"));
-box2.addEventListener('click',() => setColor("box1", "box3", "pink"));
-box3.addEventListener('click',() => setColor("box1", "box2", "orange"));
-
-box1.addEventListener('click', () => setColor('box2','box3', 'red'));
-box2.addEventListener('click', () => setColor('box1','box3', 'pink'));
-box3.addEventListener('click', () => setColor('box1','box2', 'orange'));
-box4.addEventListener('click', () => {toggle(box4);});
-box5.addEventListener('click', () => {toggle(box5);});
-box6.addEventListener('click', () => setColor('box1', 'box2', 'orange'));
-box7.addEventListener('click', () => setColor('box1', 'box2', 'orange'));
 
 function toggle(box)
 {
@@ -50,6 +60,6 @@ function setColor(boxid1, boxid2, boxColor)
   let box =document.getElementById(boxid1);
   box.style.backgroundColor = boxColor;
   box =document.getElementById(boxid2);
-  box. style.backgroundColor = boxColor;
+  box.style.backgroundColor = boxColor;
 }
 //function toggle(boxid4,boxid5)
