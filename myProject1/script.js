@@ -36,3 +36,21 @@ function randGene()
     })
 
 }
+// Timer for the game to start
+setTimeout(randGene, 5000);
+
+// Timer for the pattern colors to change 
+let patternInterval = document.getElementById("playTile");
+
+function patternChangeTime()
+{
+    for(let i = 0; i < patternLength; i++)
+    {
+        patternInterval.forEach((e)=>{
+            document.getElementById(e).classList.add('colorOnClick');
+        })
+    }
+}
+
+setInterval(patternInterval, 880);
+
