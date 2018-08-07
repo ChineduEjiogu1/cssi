@@ -13,11 +13,18 @@
 // limitations under the License.
 
 console.log("Running Window Events Script");
+
+let box6 = document.getElementById('box6');
+let rect = document.getElementById('rect');
+
 window.addEventListener("keypress", e=> {
-console.log(e.keyCode);
+if (e.key ==== 'c')
+{
+   box6.style.height
+}
 
 
-})
+});
 
 
 // insert a function that prints out the key code of a key pressed
