@@ -67,21 +67,22 @@ setTimeout(randGene, 5000);
 // Timer for the pattern colors to change 
 let patternInterval = document.querySelectorAll("#playTile");
 
-function fading(tile)
+async function fading(tile) // previously tile
 {
-    tile.classList.toggle('colorOnClick');
-    setInterval(1000);
-    tile.classList.toggle('colorOnClick');
-    
+    console.log("start fading function");
+    // tile.classList.toggle('colorOnClick');
+    // setInterval(1000);
+    // tile.classList.toggle('colorOnClick');
+
+    for(let i = 0; i < patternTiles.length; i++)
+    {   
+        console.log([i]);
+        item = patternTiles[i];
+        document.getElementById(item).classList.remove("colorOnClick");
+        await timer(1500);
+    }
 } 
 
-function patternChangeTime()
-{
-    for(let i = 0; i < patternTiles.length; i++)
-    {
-        fading(patternTiles[i]);
-    }
-}
 
 
 
