@@ -29,3 +29,51 @@ inside_movie = {
 # Write your code below to update the information in accordance with its
 # IMDB page: http://www.imdb.com/title/tt2096673/
 
+inside_movie["year_released"] = 2015
+inside-movie["score"] = 8.2
+inside_movie["reviews"] = 4822446
+
+inside_movie.pop("out_of")
+
+inside_movie["genre"] = ["Amination", "Adventure", "comedy"]
+
+for i in inside_movie[i]:
+    print i, ":",inside_movie[i]
+
+
+sherk_movie = {
+"title": "Sherk",
+"id:": tt0126029,
+"year_released": 2001,
+"rating": "PG",
+"score":7.9,
+"reviews":531432,
+"genre":[ "Animation", "Adventure", "Comedy" ]
+}
+movies = [sherk_movie, inside_movie]
+
+user = raw_input("Enter a genre").lower()
+
+bestMovie = {"tiitle":"none","rating":0}
+
+for i in movies:
+    if user in i['genre']:
+        if bestMovie['score'] < i["rating"]:
+            bestMovie["score"] = i["rating"]
+            bestMovie["score"] = i["title"]
+
+print bestMovie["title"]
+
+
+
+
+
+'''
+Person = {
+"name":
+"first": "Jermaine",
+"middle": "N",
+"Last":
+
+}
+'''
