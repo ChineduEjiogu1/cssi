@@ -14,10 +14,14 @@ playingTile.forEach((e)=>{
 function colorChange(e){
     console.log("patternTiles inside colorChange: ",patternTiles)
     console.log("classList: ",e.target.classList)
-    console.log("classList: ",e.target.classList == patternTiles)
+    //console.log("classList: ",e.target.classList == patternTiles)
+
     if (! e.target.classList.contains('colorOnClick'))
     {
      lost();
+    }
+    else{
+        document.getElementById(e.target.id).classList.remove("fadeColor");
     }
 }
 
@@ -29,53 +33,51 @@ function colorChange2(e){
     e.target.classList.add("colorOnClick")
     patternTiles.push(this.id);
 
-    if(e.target.classList.contains('colorOnClick'))
-    {
-        !(lost());
-        document.getElementById(items).classList.add('colorOnClick');
-    }
 }
 
 // Random generate Function for pattern and wrong tiles turning red
 function timer(ms) {
     return new Promise(res => setTimeout(res, ms));
  }
- 
+
  async function randGene()
  {
     for(let q = 1; q<=25; q++)
     {
         tilesIds.push('playTile' + q);
     }
- 
+
     let patternLength = Math.floor(Math.random()*3)+7;
- 
+
     for(let c = 0, item = 0,q = 0; c <= patternLength; c++)
     {
         q = Math.floor(Math.random()*tilesIds.length);
         items = tilesIds[q];
+        console.log(items);
         tilesIds.splice(q,1);
-        patternTiles.push(item);
+        patternTiles.push(items);
         console.log(c);
         document.getElementById(items).classList.add('colorOnClick');
-        await timer(3000);
+        await timer(2400);
         fading()
+        console.log(patternTiles);
     }
     console.log("patternTiles inside randGene: ",patternTiles)
  }
- 
+
  // Timer for the game to start
  setTimeout(randGene, 5000);
-    
+
 // Timer for blocks to disappear right after appearing.
-async function fading() 
+async function fading()
 {
     console.log("start fading function");
     for(let i = 0; i <= 9; i++)
     {
         item = patternTiles[i];
-        document.getElementById(items).classList.remove("colorOnClick");
-        await timer(3000);
+        // document.getElementById(items).classList.remove("colorOnClick");
+        document.getElementById(items).classList.add("fadeColor");
+        await timer(2400);
     }
 }
 //When you click on the wrong tile thats not in the pattern randomly generated
