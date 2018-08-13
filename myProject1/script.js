@@ -58,7 +58,7 @@ function timer(ms) {
         patternTiles.push(items);
         console.log(c);
         document.getElementById(items).classList.add('colorOnClick');
-        await timer(3000);
+        await timer(2400);
         fading()
         console.log(patternTiles);
     }
@@ -77,7 +77,7 @@ async function fading()
         item = patternTiles[i];
         // document.getElementById(items).classList.remove("colorOnClick");
         document.getElementById(items).classList.add("fadeColor");
-        await timer(3000);
+        await timer(2400);
     }
 }
 //When you click on the wrong tile thats not in the pattern randomly generated
