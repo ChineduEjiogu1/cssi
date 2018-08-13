@@ -14,10 +14,14 @@ playingTile.forEach((e)=>{
 function colorChange(e){
     console.log("patternTiles inside colorChange: ",patternTiles)
     console.log("classList: ",e.target.classList)
-    console.log("classList: ",e.target.classList == patternTiles)
+    //console.log("classList: ",e.target.classList == patternTiles)
+
     if (! e.target.classList.contains('colorOnClick'))
     {
      lost();
+    }
+    else{
+        document.getElementById(e.target.id).classList.remove("fadeColor");
     }
 }
 
@@ -29,11 +33,6 @@ function colorChange2(e){
     e.target.classList.add("colorOnClick")
     patternTiles.push(this.id);
 
-    if(e.target.classList.contains('colorOnClick'))
-    {
-        !(lost());
-        document.getElementById(items).classList.add('colorOnClick');
-    }
 }
 
 // Random generate Function for pattern and wrong tiles turning red
@@ -54,12 +53,14 @@ function timer(ms) {
     {
         q = Math.floor(Math.random()*tilesIds.length);
         items = tilesIds[q];
+        console.log(items);
         tilesIds.splice(q,1);
-        patternTiles.push(item);
+        patternTiles.push(items);
         console.log(c);
         document.getElementById(items).classList.add('colorOnClick');
         await timer(3000);
         fading()
+        console.log(patternTiles);
     }
     console.log("patternTiles inside randGene: ",patternTiles)
  }
@@ -74,7 +75,8 @@ async function fading()
     for(let i = 0; i <= 9; i++)
     {
         item = patternTiles[i];
-        document.getElementById(items).classList.remove("colorOnClick");
+        // document.getElementById(items).classList.remove("colorOnClick");
+        document.getElementById(items).classList.add("fadeColor");
         await timer(3000);
     }
 }

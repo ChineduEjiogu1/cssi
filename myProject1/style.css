@@ -27,6 +27,11 @@ body
         background-color:rgb(17, 36, 252);
     }
     
+    .fadeColor
+    {
+        background-color: white;
+    }
+
     .failOnClick
     {
       background-color:rgb(224, 6, 6);

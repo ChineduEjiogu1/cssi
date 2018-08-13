@@ -11,7 +11,7 @@ which is what the user clicks on, hence the override.
 It should not be this way if you clicked on the right on. 
 
 The right way should be
-<div class="playingtile colorOnClick id="playTile21"></div> 
+<div class="playingtile colorOnClick" id="playTile21"></div> 
 If the user got it correct.
 
 //5. If the box in that pattern has colorOnClick and the user selects a box that has colorOnClick 
