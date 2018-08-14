@@ -34,6 +34,24 @@ import webapp2
 import os
 import random
 import jinja2
+from google.appengine.api import urlfetch
+import urllib
+import json
+
+KEY = 'AIzaSyDOSZVsXH2-oE0xVsXreZluHG_LMilLpe8'
+URL = "https://www.googleapis.com/customsearch/v1?"
+CX = '011134681791985263751:f3xi8cytcc8'
+
+class SimpleURLFetcher(webapp2.RequestHandler):
+    def get(self):
+        query = "cat"
+        query_params = {'key': KEY, 'cx': CX, 'q' : query}
+        result = urlfetch.fetch(URL + urllib.urlencode(query_params))
+        if result.status_code == 200:
+            self.response.write(result.status_code)
+            self.response.write(result.content)
+        else:
+            self.response.status_code = result.status_code
 
 
 def get_fortune():
@@ -42,7 +60,6 @@ def get_fortune():
     #use the random library to return a random element from the array
     random_fortune = fortune_list[random.randint(0,2)]
     return(random_fortune)
-
 
 #remember, you can get this by searching for jinja2 google app engine
 #jinja_current_directory = "insert jinja2 environment variable here"
@@ -87,5 +104,6 @@ app = webapp2.WSGIApplication([
     #the root route - to the Fortune Handler
     ('/', HelloHandler),
     ('/predict', FortuneHandler),
-    ("/farewell", GoodbyeHandler) #maps '/predict' to the FortuneHandler
+    ("/farewell", GoodbyeHandler) ,
+    ("/simple", SimpleURLFetcher) #maps '/predict' to the FortuneHandler
 ], debug=True)
