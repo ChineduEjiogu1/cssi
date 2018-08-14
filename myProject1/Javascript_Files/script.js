@@ -7,7 +7,7 @@ let playingTile = document.querySelectorAll(".playingtile");
 
 //changes tile colorOnclick
 playingTile.forEach((e)=>{
-	e.addEventListener("click",colorChange);
+	e.addEventListener("mouseup",colorChange);
 });
 
 //changes colorOnClick to red on all tiles if you click on the wrong tile
@@ -20,25 +20,29 @@ function colorChange(e){
     {
      lost();
     }
-    else{
+    else
+    {
         document.getElementById(e.target.id).classList.remove("fadeColor");
+        document.getElementById(e.target.id).classList.add("colorOnClick");
+        console.log(e.target.id);
+        if(patternTiles.indexOf(e.target.id)!== -1)
+        {
+            patternTiles.splice(patternTiles.indexOf(e.target.id),1);
+        }
+        console.log(patternTiles);
+
+        if(patternTiles.length === 0)
+        {
+            win();
+        }
     }
 }
 
-playingTile.forEach((e)=>{
-e.addEventListener('click',colorChange2);
-});
-
-function colorChange2(e){
-    e.target.classList.add("colorOnClick")
-    patternTiles.push(this.id);
-
-}
-
 // Random generate Function for pattern and wrong tiles turning red
-function timer(ms) {
+function timer(ms) 
+{
     return new Promise(res => setTimeout(res, ms));
- }
+}
 
  async function randGene()
  {
@@ -49,7 +53,7 @@ function timer(ms) {
 
     let patternLength = Math.floor(Math.random()*3)+7;
 
-    for(let c = 0, item = 0,q = 0; c <= patternLength; c++)
+    for(let c = 0, item = 0,q = 0; c < patternLength; c++)
     {
         q = Math.floor(Math.random()*tilesIds.length);
         items = tilesIds[q];
@@ -104,6 +108,32 @@ async function lost()
         console.log(c);
         document.getElementById(item).classList.add('failOnClick');
         await timer(0);
+    }
+    console.log("patternTiles inside randGene: ",patternTiles)
+}
+
+async function win()
+{
+    tilesIds = [];
+    for(let i = 1; i<=25; i++)
+    {
+        tilesIds.push('playTile' + i);
+    }
+
+    for(let q = 0; q<=24; q++)
+    {
+        console.log(tilesIds[q]);
+    }
+
+    let patternLength = 25;
+
+    for(let c = 0, item = 0,i = 0; c < patternLength; c++)
+    {
+        item = tilesIds[c];
+        lostTiles.push(item);
+        console.log(c);
+        document.getElementById(item).classList.add('rightOnClick');
+        await timer(10);
     }
     console.log("patternTiles inside randGene: ",patternTiles)
 }
