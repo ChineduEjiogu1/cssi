@@ -24,12 +24,11 @@ h1
         background-color: white;
         border: 0.8px solid black;
         border-radius: 10px;
-        /*
-        border-style: outset;
-        */
-        
+        border-style: outset;   
     }
     
+    .chosen {background-color:rgb(17, 36, 252)}
+
     .colorOnClick
     {
         background-color:rgb(17, 36, 252);

@@ -2,38 +2,38 @@ const selectedTiles = []; // selected tiles array
 let tilesIds = [];  // Tile ids array
 const patternTiles = []; // Pattern array
 const lostTiles = []; // Tiles that are incorrect and not in the pattern, tiles the users has not yet selected
+let canPlay = false;
 
 let playingTile = document.querySelectorAll(".playingtile");
 
-//changes tile colorOnclick
-playingTile.forEach((e)=>{
-	e.addEventListener("mouseup",colorChange);
-});
 
 //changes colorOnClick to red on all tiles if you click on the wrong tile
-function colorChange(e){
-    console.log("patternTiles inside colorChange: ",patternTiles)
-    console.log("classList: ",e.target.classList)
-    //console.log("classList: ",e.target.classList == patternTiles)
-
-    if (! e.target.classList.contains('colorOnClick'))
+async function colorChange(e){
+    if(canPlay)
     {
-     lost();
-    }
-    else
-    {
-        //document.getElementById(e.target.id).classList.remove("fadeColor");
-        document.getElementById(e.target.id).classList.replace("fadeColor","colorOnClick");
-        console.log(e.target.id);
-        if(patternTiles.indexOf(e.target.id)!== -1)
+        console.log("E target value: ", e.target.id)
+        console.log("patternTiles inside colorChange: ",patternTiles)
+        console.log("classList: ",e.target.classList)
+        //console.log("classList: ",e.target.classList == patternTiles)
+        if (patternTiles.indexOf(e.target.id) == -1 && !e.target.classList.contains('chosen'))//! e.target.classList.contains('colorOnClick'))
         {
-            patternTiles.splice(patternTiles.indexOf(e.target.id),1);
+        lost();
         }
-        console.log(patternTiles);
-
-        if(patternTiles.length === 0)
+        else
         {
-            win();
+            
+            document.getElementById(e.target.id).classList.add('chosen');
+            console.log(e.target.id);
+            if(patternTiles.indexOf(e.target.id)!== -1)
+            {
+                patternTiles.splice(patternTiles.indexOf(e.target.id),1);
+            }
+            console.log(patternTiles);
+
+            if(patternTiles.length === 0)
+            {
+                win();
+            }
         }
     }
 }
@@ -66,11 +66,28 @@ function timer(ms)
         fading()
         console.log(patternTiles);
     }
-    console.log("patternTiles inside randGene: ",patternTiles)
+    console.log("patternTiles inside randGene: ",patternTiles);
+    canPlay = true;
  }
 
  // Timer for the game to start
- setTimeout(randGene, 5000);
+ //setTimeout(randGene, 5000);
+
+async function startGame(){
+   await timer(5000);
+    randGene();
+
+    //changes tile colorOnclick
+    playingTile.forEach((e)=>{
+        e.addEventListener("click",colorChange);
+    });
+    canPlay = true;
+}
+
+ //changes tile colorOnclick
+// playingTile.forEach((e)=>{
+//     e.addEventListener("click",colorChange);
+// });
 
 // Timer for blocks to disappear right after appearing.
 async function fading()
@@ -79,8 +96,8 @@ async function fading()
     for(let i = 0; i <= patternTiles.length; i++)
     {
         item = patternTiles[i];
-        //document.getElementById(items).classList.add("colorOnClick");
-        document.getElementById(items).classList.add("fadeColor");
+        document.getElementById(items).classList.toggle("colorOnClick",false);
+        //document.getElementById(items).classList.add("fadeColor");
         await timer(2400);
     }
 }
