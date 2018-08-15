@@ -22,8 +22,8 @@ function colorChange(e){
     }
     else
     {
-        document.getElementById(e.target.id).classList.remove("fadeColor");
-        document.getElementById(e.target.id).classList.add("colorOnClick");
+        //document.getElementById(e.target.id).classList.remove("fadeColor");
+        document.getElementById(e.target.id).classList.replace("fadeColor","colorOnClick");
         console.log(e.target.id);
         if(patternTiles.indexOf(e.target.id)!== -1)
         {
@@ -76,10 +76,10 @@ function timer(ms)
 async function fading()
 {
     console.log("start fading function");
-    for(let i = 0; i <= 9; i++)
+    for(let i = 0; i <= patternTiles.length; i++)
     {
         item = patternTiles[i];
-        // document.getElementById(items).classList.remove("colorOnClick");
+        //document.getElementById(items).classList.add("colorOnClick");
         document.getElementById(items).classList.add("fadeColor");
         await timer(2400);
     }

@@ -3,10 +3,16 @@ body
     background-image: url("background-for-game.png");
     
 }
-    
+h1 
+{   margin: 8px;
+    font-family: 'Oleo Script';
+    font-size: 70px;
+    text-align: center;
+    color: skyblue;
+}
     .playing-container
     {
-        margin-top: 100px;
+        margin-top: 25px;
         display:grid;
         grid-template-columns: 100px 100px 100px 100px 100px;
         grid-template-rows: 100px 100px 100px 100px 100px;
@@ -18,8 +24,10 @@ body
         background-color: white;
         border: 0.8px solid black;
         border-radius: 10px;
-    
-    
+        /*
+        border-style: outset;
+        */
+        
     }
     
     .colorOnClick
