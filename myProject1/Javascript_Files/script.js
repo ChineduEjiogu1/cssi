@@ -2,12 +2,12 @@ const selectedTiles = []; // selected tiles array
 let tilesIds = [];  // Tile ids array
 const patternTiles = []; // Pattern array
 const lostTiles = []; // Tiles that are incorrect and not in the pattern, tiles the users has not yet selected
-let canPlay = false;
+let canPlay = false; // Boundaries for the pattern to be completed
 
 let playingTile = document.querySelectorAll(".playingtile");
 
 
-//changes colorOnClick to red on all tiles if you click on the wrong tile
+//changes colors of the tiles for it's specific class
 async function colorChange(e){
     if(canPlay)
     {
@@ -15,13 +15,12 @@ async function colorChange(e){
         console.log("patternTiles inside colorChange: ",patternTiles)
         console.log("classList: ",e.target.classList)
         //console.log("classList: ",e.target.classList == patternTiles)
-        if (patternTiles.indexOf(e.target.id) == -1 && !e.target.classList.contains('chosen'))//! e.target.classList.contains('colorOnClick'))
+        if (patternTiles.indexOf(e.target.id) == -1 && !e.target.classList.contains('chosen'))//!e.target.classList.contains('colorOnClick'))
         {
         lost();
         }
         else
         {
-            
             document.getElementById(e.target.id).classList.add('chosen');
             console.log(e.target.id);
             if(patternTiles.indexOf(e.target.id)!== -1)
@@ -73,23 +72,17 @@ function timer(ms)
  // Timer for the game to start
  //setTimeout(randGene, 5000);
 
-async function startGame(){
+async function startGame()
+{
    await timer(5000);
     randGene();
-
     //changes tile colorOnclick
     playingTile.forEach((e)=>{
         e.addEventListener("click",colorChange);
     });
-    //canPlay = true;
 }
 
- //changes tile colorOnclick
-// playingTile.forEach((e)=>{
-//     e.addEventListener("click",colorChange);
-// });
-
-// Timer for blocks to disappear right after appearing.
+// Timer for blocks to disappear right after the other.
 async function fading()
 {
     console.log("start fading function");
@@ -101,7 +94,8 @@ async function fading()
         await timer(2400);
     }
 }
-//When you click on the wrong tile thats not in the pattern randomly generated
+
+//When you click on the wrong tile thats not in the randomly generated pattern 
 // it turns red
 async function lost()
 {
@@ -129,6 +123,8 @@ async function lost()
     console.log("patternTiles inside randGene: ",patternTiles)
 }
 
+//When the array of pattern tiles is empty the win function is called
+//every tile turns green 
 async function win()
 {
     tilesIds = [];
