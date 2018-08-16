@@ -3,9 +3,9 @@ let tilesIds = [];  // Tile ids array
 const patternTiles = []; // Pattern array
 const lostTiles = []; // Tiles that are incorrect and not in the pattern, tiles the users has not yet selected
 let canPlay = false; // Boundaries for the pattern to be completed
+const showSolution = [];
 
 let playingTile = document.querySelectorAll(".playingtile");
-
 
 //changes colors of the tiles for it's specific class
 async function colorChange(e){
@@ -25,7 +25,7 @@ async function colorChange(e){
             console.log(e.target.id);
             if(patternTiles.indexOf(e.target.id)!== -1)
             {
-                patternTiles.splice(patternTiles.indexOf(e.target.id),1);
+               patternTiles.splice(patternTiles.indexOf(e.target.id),1);
             }
             console.log(patternTiles);
 
@@ -59,6 +59,7 @@ function timer(ms)
         console.log(items);
         tilesIds.splice(q,1);
         patternTiles.push(items);
+        showSolution.push(items);
         console.log(c);
         document.getElementById(items).classList.add('colorOnClick');
         await timer(2400);
@@ -69,9 +70,7 @@ function timer(ms)
     canPlay = true;
  }
 
- // Timer for the game to start
- //setTimeout(randGene, 5000);
-
+// Timer for the game to start
 async function startGame()
 {
    await timer(5000);
@@ -90,7 +89,6 @@ async function fading()
     {
         item = patternTiles[i];
         document.getElementById(items).classList.toggle("colorOnClick",false);
-        //document.getElementById(items).classList.add("fadeColor");
         await timer(2400);
     }
 }
@@ -117,7 +115,20 @@ async function lost()
         item = tilesIds[c];
         lostTiles.push(item);
         console.log(c);
+        if(patternTiles.indexOf(item) != -1)
+        {
+            document.getElementById(item).classList.add('chosen');
+        }
         document.getElementById(item).classList.add('failOnClick');
+        await timer(0);
+    }
+    await timer(2000)
+    canPlay = false;
+    for(let c = 0, item = 0,i = 0; c < patternLength; c++)
+    {
+        item = tilesIds[c];
+        document.getElementById(item).classList.remove('failOnClick');
+        
         await timer(0);
     }
     console.log("patternTiles inside randGene: ",patternTiles)
