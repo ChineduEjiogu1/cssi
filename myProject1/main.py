@@ -16,9 +16,13 @@ class PlayingTileHandler(webapp2.RequestHandler):
         tile_template = jinja_current_directory.get_template('index.html')
         self.response.write(tile_template.render())
 
+class WelcomeHandler(webapp2.RequestHandler):
+    def get(self):
+        tile_template = jinja_current_directory.get_template('welcome.html')
+        self.response.write(tile_template.render())
 #the route mapping
 app = webapp2.WSGIApplication([
     #this line routes the main url ('/')  - also know as
-    #the root route - to the Fortune Handler
-    ('/', PlayingTileHandler),
+    ('/', WelcomeHandler),
+    ('/tiles', PlayingTileHandler),
     ], debug=True)

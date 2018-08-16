@@ -1,52 +1,140 @@
-body
+#timer
 {
-    background-image: url("background-for-game.png");
-}
-
-h1 
-{   margin: 8px;
-    font-family: 'Oleo Script';
-    font-size: 70px;
-    text-align: center;
+  font-family: 'Oleo Script';
+  font-size: 40px;
+  background-color: white;
+  border: 0.8px solid black;
+  border-radius: 10px;
+  text-align: center;
     color: skyblue;
 }
-    .playing-container
-    {
-        margin-top: 25px;
-        display:grid;
-        grid-template-columns: 100px 100px 100px 100px 100px;
-        grid-template-rows: 100px 100px 100px 100px 100px;
-        justify-content: center;
-    }
-    
-    .playingtile
-    {
-        background-color: white;
-        border: 0.8px solid black;
-        border-radius: 10px;
-        border-style: outset;   
-    }
-    
-    .chosen {background-color:rgb(17, 36, 252)}
 
-    .colorOnClick
-    {
-        background-color:rgb(17, 36, 252);
-    }
-    
-    .fadeColor
-    {
-        background-color: white;
-    }
+.buttons:hover 
+{
+  background-color: lightblue;
+}
 
-    .failOnClick
-    {
-      background-color:rgb(224, 6, 6);
-    }
-    
-    .rightOnClick
-    {
-      background-color: rgb(36, 165, 44);
-    }
-    
-   
+.buttons:active {
+  background-color: skyblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.buttons{
+display: inline-block;
+ padding: 10px 15px;
+ font-size: 24px;
+ cursor: pointer;
+ text-align: center;
+ text-decoration: none;
+ outline: none;
+ color: #fff;
+ background-color: skyblue;
+ border: none;
+ border-radius: 15px;
+ box-shadow: 0 9px #999;
+}
+
+.content
+{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns:500px 500px 500px;
+    grid-template-rows: 100px 100px 100px;
+    justify-content: center;
+}
+
+.change
+{
+  margin-left: 100px;
+}
+
+.Color3
+{
+  font-family: 'Oleo Script';
+  font-size: 30px;
+    color: white;
+  margin-top: 50px;
+
+}
+.Color2
+{
+  font-family: 'Oleo Script';
+  font-size: 30px;
+  color: skyblue;
+  margin-right: 100px;
+}
+
+.Color
+{
+  font-family: 'Oleo Script';
+  font-size: 70px;
+  color: White;
+}
+
+.body2
+{
+  background-image: url("background-for-game.png");
+}
+
+.button
+{
+  background-image:url('Start_Button.png');
+  margin-top: 600px;
+  height: 105px;
+  width: 518px;
+}
+
+.body
+{
+  background-image: url("background-for-game.png");
+}
+.h1
+{
+  margin: 8px;
+  font-family: 'Oleo Script';
+  font-size: 70px;
+  text-align: center;
+  color: skyblue;
+}
+
+.playing-container
+{
+  margin-top: 25px;
+  display:grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 132px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px;
+  margin-left: 700px;
+}
+
+.playingtile
+{
+  background-color: white;
+  border: 0.8px solid black;
+  border-radius: 10px
+}
+
+.chosen
+{
+  background-color:rgb(17, 36, 252)
+}
+
+.colorOnClick
+{
+  background-color:rgb(17, 36, 252);
+}
+
+.fadeColor
+{
+  background-color: white;
+}
+
+.failOnClick
+{
+  background-color:rgb(224, 6, 6);
+}
+
+.rightOnClick
+{
+  background-color: rgb(36, 165, 44);
+}
