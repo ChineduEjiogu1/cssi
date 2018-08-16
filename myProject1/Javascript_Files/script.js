@@ -81,7 +81,7 @@ async function startGame(){
     playingTile.forEach((e)=>{
         e.addEventListener("click",colorChange);
     });
-    canPlay = true;
+    //canPlay = true;
 }
 
  //changes tile colorOnclick
