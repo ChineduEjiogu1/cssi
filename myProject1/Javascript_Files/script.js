@@ -115,15 +115,19 @@ async function lost()
         item = tilesIds[c];
         lostTiles.push(item);
         console.log(c);
+        
         if(patternTiles.indexOf(item) != -1)
         {
             document.getElementById(item).classList.add('chosen');
         }
+        
         document.getElementById(item).classList.add('failOnClick');
         await timer(0);
     }
     await timer(2000)
+    
     canPlay = false;
+    
     for(let c = 0, item = 0,i = 0; c < patternLength; c++)
     {
         item = tilesIds[c];
@@ -160,4 +164,10 @@ async function win()
         await timer(10);
     }
     console.log("patternTiles inside randGene: ",patternTiles)
+}
+
+
+function reset()
+{
+    location.reload();
 }
