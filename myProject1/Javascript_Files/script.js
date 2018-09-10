@@ -2,10 +2,11 @@ const selectedTiles = []; // selected tiles array
 let tilesIds = [];  // Tile ids array
 const patternTiles = []; // Pattern array
 const lostTiles = []; // Tiles that are incorrect and not in the pattern, tiles the users has not yet selected
+
 let canPlay = false; // Boundaries for the pattern to be completed
 let hasLost = false;
-let playingTile = document.querySelectorAll(".playingtile");
 
+let playingTile = document.querySelectorAll(".playingtile");
 
 //changes colors of the tiles for it's specific class
 async function colorChange(e){
