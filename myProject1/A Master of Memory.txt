@@ -1,0 +1,142 @@
+A Master of Memory
+-----------------------------------------------------------------------------------------------------
+Mimicking pattern game. This game depends on your short-term memory and your 
+memorization skills. In this game your will memorize a pattern of tiles that has been generated 
+randomally on the playing tile. The objective is to memorize that pattern and mimick that 
+pattern and by mimicking that pattern you click on the boxs/tiles that have been presented 
+previously before it disappeared. If you hit all the right tiles that were generated and presented to 
+you before it disappear,you win. Hit the wrong tile of the generated tile presented to you 
+previously, you lose.
+
+Rules
+---------------------------------------------------------------------------------------
+-you get 22 seconds to finish the tile pattern.
+-they are 7-9 tiles of the generated pattern.
+// on the fence // order or inorder retracing of the generated pattern.
+-points are added if correct, wrong no points deduced. Need a specific 
+amount of points to move to next level.
+-one tile comes up, another tile comes up, then the previous tile fades out (1.5 secs)
+-countdown (5, 4, 3, 2, 1) countdown gets to 0 and the pattern not yet finished 
+you don't score any points.
+
+Scaling
+----------------------------------------------
+-harder diffculty - more tiles (7*7) (9*9)
+-number clicks or flashs 
+-order matters in the mimicking of the pattern.
+-Dummy pattern box use to fool you (not part of og pattern)
+-box tiles fall in the playingfield and they shaken up and moved to new
+locations and there is a time frame to see the new locations and mimic them (Remix)
+or remeber the old positions. If you get the wrong one the tile pattern poops out of the screen
+-Each level you get correct more time is added 
+-The instructions will tell you to pick the right colors that was shown on
+the playing field, as the wrong colors will show in the pattern. If you click on the
+wrong color and click on a box thats not in the pattern, game over.
+shadow playing fleid afetr a specific set of pattern tiles show up
+- is that the right pattern multiplayer, also mutiplayer will be be based on how fast you 
+get the pattern correct and if you get it correct. If you lose to a player the points
+you put up to gamble or bet will be given to the winning player vise visa. Or to play
+to who ever gets first place or most in points (of course with a cap).
+long press or hold
+
+remember the pattern in reverse order.
+
+blinking mechcanic
+
+speciality feature
+------------------------------------------------------------------------------------------
+click me button
+- This button either it helps you or tricks you but that depends on your memory.
+-The click me feature comes up when it looks like you need "help", it comes up after 
+10 secs of the pattern being shown. 
+-It is there to entice you to click on it to be a "help", 
+"be a hint to you", or "trick you".
+-The button stays up for 5 secs and it dissappears and the countdown begins
+(left of screen) also the click me/trick me button will help you with answering one other tile that
+closest to it
+
+change start seconds
+
+wrap around screen, scroll touchscreen to get to the other side of the playing board
+=============================================================================================
+
+//salmon look a like color
+rgba(220, 220, 220, 0.979);
+
+//blue
+rgb(29, 50, 209);
+
+rgba(17, 36, 249);
+
+rgb(17, 36, 252);
+
+//white
+ rgb(244, 246, 249);
+
+rgb(249, 249, 249);
+
+rgb(249, 247, 247);
+
+//red
+rgb(252, 25, 25);
+
+rgb(252, 10, 10);
+
+rgb(224, 6, 6);
+
+//Green
+rgb(44, 183, 53);
+
+rgb(40, 168, 48);
+
+rgb(36, 165, 44); latest on used
+
+vapid
+vacuous
+===================================================================================================================================================
+
+Mechanics of Master of Memory
+
+-The Game is timed for 5 seconds and the white tiles on the playing board will turn blue
+by a time interval to fill up a pattern based on that is random that is created by a function
+
+-You can click on the boxs, the boxs should turn blue.
+
+- The player duty is to mimick the patterb that was just shown.
+
+- If the player, gets the pattern correct the playig board will light up green, if they 
+click on one wrong tile, the whole tile turns red
+
+- The game is timed, there is a countdown to how many seconds the player has on fill out the blue 
+patterned tile that was previously shown.
+
+- each time you a get a pattern correct, your time on answering or fill out the playing board will increase
+
+- If you get the pattern incorrect, the correct pattern will be shown to notify the player in what he/she 
+got wrong.
+
+- White flash underneath the blue tile when you click on the right tile in the pattern.
+
+- The playing board turns red whrn you on a tile before all the patterns show up "don't get too hasty"
+
+- users will create partterns them selves and share it with other users, it will depend on how 
+it will users with their memory or how fun it is.
+
+Notebook of notes.
+
+Design
+______________________________________________________________________________________
+
+Tron look, black background, neon colors, red, green, blue, purple, orange, transpareny
+
+The game will progress how the player progresses, if they are hot, it gets more diffcult
+and diffcult, if they are not as good they stay at the basic level and patterns are alot
+more easier to track.
+Music
+
+- beatof the music
+--------------------------------
+mystreious music
+
+
+
